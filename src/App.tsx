@@ -79,13 +79,34 @@ export default function Questionnaire() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const next = () => {
-    if (validateSection()) {
-      if (currentSection < sections.length - 1) setCurrentSection((s) => s + 1);
-      else setSubmitted(true);
+  const next = async () => {
+  if (validateSection()) {
+    if (currentSection < sections.length - 1) {
+      setCurrentSection((s) => s + 1);
+      window.scrollTo(0, 0);
+    } else {
+      // Отправка на Formspree
+      const formData: Record<string, any> = {};
+      questions.forEach((q) => {
+        const ans = answers[q.id];
+        formData[q.question] = Array.isArray(ans) ? ans.join(", ") : ans || "—";
+      });
+
+      try {
+        await fetch("https://formspree.io/f/mykaenbp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+      } catch (e) {
+        console.error("Ошибка отправки:", e);
+      }
+
+      setSubmitted(true);
       window.scrollTo(0, 0);
     }
-  };
+  }
+};
 
   const prev = () => {
     setCurrentSection((s) => s - 1);
