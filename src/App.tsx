@@ -284,7 +284,7 @@ const styles: Record<string, React.CSSProperties> = {
   required: { color:"#e63946", marginLeft:"4px" },
   hint: { fontSize:"12px", color:"#888", margin:"0 0 8px", fontStyle:"italic", lineHeight:1.5 },
   error: { fontSize:"12px", color:"#e63946", margin:"0 0 6px", fontWeight:600 },
-  input: { width:"100%", padding:"11px 14px", fontSize:"14px", border:"1.5px solid #dde1e7", borderRadius:"8px", outline:"none", boxSizing:"border-box", color:"#222", transition:"border-color 0.2s", fontFamily:"inherit" },
+  input: { width:"100%", padding:"11px 14px", fontSize:"14px", border:"1.5px solid #dde1e7", borderRadius:"8px", outline:"none", boxSizing:"border-box", color:"#222", backgroundColor:"#ffffff", transition:"border-color 0.2s", fontFamily:"inherit" },
   textarea: { width:"100%", padding:"11px 14px", fontSize:"14px", border:"1.5px solid #dde1e7", borderRadius:"8px", outline:"none", boxSizing:"border-box", color:"#222", resize:"vertical", fontFamily:"inherit", lineHeight:1.6 },
   optionsList: { display:"flex", flexDirection:"column", gap:"8px", marginTop:"6px" },
   optionLabel: { display:"flex", alignItems:"flex-start", cursor:"pointer" },
